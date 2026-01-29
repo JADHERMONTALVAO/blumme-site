@@ -599,7 +599,43 @@
 
 @media (max-width: 991px) {
   .via-navbar .via-menu-container {
-    padding: 0 16px !important;
+    padding: 12px 16px !important;
+    height: auto !important;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .via-navbar-left,
+  .via-navbar-right {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .via-navbar-right {
+    justify-content: flex-end;
+  }
+
+  .via-navbar .via-navbar-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .via-navbar .via-navbar-nav-link {
+    white-space: normal;
+  }
+
+  .via-navbar .via-logo {
+    width: min(180px, 70vw) !important;
+    max-width: 70vw !important;
+    height: auto !important;
+  }
+
+  .via-navbar .w-nav-menu {
+    width: 100vw !important;
+    max-width: 100%;
+    left: 0;
+    right: 0;
   }
 }
 
