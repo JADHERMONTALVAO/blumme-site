@@ -1,0 +1,3 @@
+overlay_html = '<div id=\" "mobile-menu\ class=\via-mobile-menu\ aria-hidden=\true\>\\n    <div class=\via-mobile-menu-inner\>\\n        <button type=\button\ class=\via-mobile-menu-close\ aria-label=\Fechar" "menu\>×</button>\\n        <a href=\quem-somos.html\ class=\via-mobile-menu-link\>Quem somos</a>\\n        <a href=\contato.html\ class=\via-mobile-menu-link\>Contato</a>\\n        <a href=\cases.html\ class=\via-mobile-menu-link\>Cases</a>\\n        <a href=\mensagemacompanhar.html\ class=\via-mobile-menu-link" "via-mobile-menu-link--primary\>Acompanhar projetos</a>\\n    </div>\\n</div>\\n'
+result = text[:start] + nav_block + overlay_html + text[end:]
+path.write_text(result, encoding='utf-8')
