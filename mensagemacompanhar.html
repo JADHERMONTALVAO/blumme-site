@@ -54,7 +54,7 @@
     </style>
 </head>
 <body data-w-id="5e94a80632825716c03eea08" style="opacity:1">
-<div data-collapse="medium" data-animation="over-right" data-duration="400" data-easing="ease-in" data-easing2="ease-out" data-w-id="c2f082ca-fb27-d8ad-9faf-b5fbebdefc63" role="banner" class="via-navbar w-nav"><div class="via-menu-container"><div class="via-navbar-left"><div class="via-menu-logo"><a href="index.html" class="via-logo-texto w-inline-block"><img loading="lazy" src="Imagens/LOGO.png" width="250" alt="Logo Blumme" class="via-logo" style="width:250px;height:auto;max-width:none;"/></a></div><button class="via-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="via-menu-toggle-bar"></span><span class="via-menu-toggle-bar"></span><span class="via-menu-label">MENU</span><span class="via-hidden">Abrir menu</span></button><nav role="dialog" aria-modal="true" aria-label="Menu" class="via-navbar-nav w-nav-menu" id="site-menu">
+<div data-collapse="medium" data-animation="over-right" data-duration="400" data-easing="ease-in" data-easing2="ease-out" data-w-id="c2f082ca-fb27-d8ad-9faf-b5fbebdefc63" role="banner" class="via-navbar w-nav"><div class="via-menu-container"><div class="via-navbar-left"><div class="via-menu-logo"><a href="index.html" class="via-logo-texto w-inline-block"><img loading="lazy" src="Imagens/LOGO.png" width="300" alt="Logo Blumme" class="via-logo" style="width:300px;height:auto;max-width:none;"/></a></div><button class="via-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="via-menu-toggle-bar"></span><span class="via-menu-toggle-bar"></span><span class="via-menu-label">MENU</span><span class="via-hidden">Abrir menu</span></button><nav role="dialog" aria-modal="true" aria-label="Menu" class="via-navbar-nav w-nav-menu" id="site-menu">
     <button class="via-close" type="button" aria-label="Fechar menu"><span aria-hidden="true">&times;</span></button>
     <div class="via-logo-offcanvas"><a href="index.html" class="w-inline-block"><img loading="lazy" src="Imagens/LOGO.png" alt="Logo Blumme" class="via-logo-img"/></a></div>
     <div class="via-navbar-nav-item"><a href="index.html" class="via-navbar-nav-link w-nav-link">Início</a></div>
@@ -183,7 +183,7 @@
     }
 
     .via-logo-offcanvas img {
-        width: 140px;
+        width: 168px;
         height: auto;
     }
 
@@ -209,6 +209,39 @@
 
     .via-navbar .w-nav-menu {
         z-index: 9991;
+    }
+
+    .via-menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        border: none;
+        background: transparent;
+        padding: 10px 12px;
+        cursor: pointer;
+    }
+
+    .via-menu-toggle-bar {
+        display: block;
+        width: 103px;
+        height: 5px;
+        background: #5a5a5a;
+        border-radius: 999px;
+    }
+
+    .via-menu-label {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #5a5a5a;
+    }
+
+    .via-menu-toggle[aria-expanded="true"] {
+        background: #f5f5f5;
+        border-radius: 999px;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
     }
 
     @media (max-width: 991px) {
@@ -240,7 +273,7 @@
         }
 
         .via-navbar .via-logo {
-            width: min(180px, 70vw) !important;
+            width: min(216px, 70vw) !important;
             max-width: 70vw !important;
             height: auto !important;
         }
