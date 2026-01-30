@@ -156,7 +156,7 @@
 
 .via-navbar .via-logo,
 .via-navbar .via-menu-toggle {
-  transform: translateY(-20%);
+  transform: none;
 }
 
     .via-close {
@@ -287,6 +287,16 @@
     }
 
     @media (max-width: 768px) {
+        .via-navbar .via-menu-container {
+            justify-content: center !important;
+        }
+
+        .via-navbar-left {
+            width: 100%;
+            justify-content: center;
+            gap: 16px;
+        }
+
         .via-navbar-right {
             display: none !important;
         }

@@ -674,7 +674,7 @@
 }
 
 .via-navbar .via-logo {
-  transform: translateY(20%);
+  transform: none;
 }
 
 .via-navbar .via-menu-toggle {
@@ -767,11 +767,11 @@ body.is-open {
     width: min(216px, 70vw) !important;
     max-width: 70vw !important;
     height: auto !important;
-    transform: translateY(-30%);
+    transform: none;
   }
 
   .via-navbar .via-menu-toggle {
-    transform: translateY(-30%);
+    transform: none;
   }
 
   .via-navbar .w-nav-menu {
@@ -783,6 +783,16 @@ body.is-open {
 }
 
 @media (max-width: 768px) {
+  .via-navbar .via-menu-container {
+    justify-content: center !important;
+  }
+
+  .via-navbar-left {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+
   .via-navbar-right {
     display: none !important;
   }
@@ -1031,7 +1041,6 @@ body.is-open {
 </body>
 
 </html>
-
 
 
 
