@@ -673,9 +673,12 @@
   gap: 20px;
 }
 
-.via-navbar .via-logo,
+.via-navbar .via-logo {
+  transform: translateY(40%);
+}
+
 .via-navbar .via-menu-toggle {
-  transform: translateY(-20%);
+  transform: none;
 }
 
 .via-close {
@@ -764,6 +767,11 @@ body.is-open {
     width: min(216px, 70vw) !important;
     max-width: 70vw !important;
     height: auto !important;
+    transform: translateY(-30%);
+  }
+
+  .via-navbar .via-menu-toggle {
+    transform: translateY(-30%);
   }
 
   .via-navbar .w-nav-menu {
@@ -1023,7 +1031,6 @@ body.is-open {
 </body>
 
 </html>
-
 
 
 
