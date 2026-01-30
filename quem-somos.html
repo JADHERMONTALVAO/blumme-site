@@ -189,7 +189,7 @@
 }
 
 .via-close {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -342,6 +342,10 @@ body.is-open {
     display: none !important;
   }
 
+  .via-close {
+    display: inline-flex;
+  }
+
   .via-menu-backdrop {
     display: block;
   }
@@ -355,7 +359,7 @@ body.is-open {
     max-width: 360px;
     height: 100vh;
     padding: 24px;
-    background: #fff;
+    background: #fff !important;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.12);
     transform: translateX(100%);
     transition: transform 250ms ease;
@@ -683,7 +687,6 @@ body.is-open {
     }
   });
 </script></body></html>
-
 
 
 
