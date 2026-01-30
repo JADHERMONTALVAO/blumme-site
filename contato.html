@@ -148,8 +148,14 @@
   color: #5a5a5a;
 }
 
+.via-menu-toggle[aria-expanded="true"] {
+  background: #f5f5f5;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
 .via-menu-open .via-navbar-nav.w-nav-menu {
-  display: block;
+  display: block !important;
 }
 
 @media (max-width: 991px) {
@@ -200,7 +206,7 @@
   }
 
   .via-navbar .w-nav-menu {
-    display: none;
+    display: none !important;
     position: absolute;
     top: 100%;
     left: 0;
