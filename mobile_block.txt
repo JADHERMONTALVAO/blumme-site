@@ -1,0 +1,162 @@
+<style>
+.via-mobile-menu-toggle,
+.via-mobile-menu-close {
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+.via-mobile-menu-toggle {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	transform: translateY(-50%);
+	flex-direction: column;
+	gap: 6px;
+	z-index: 10003;
+}
+.via-mobile-menu-toggle span,
+.via-mobile-menu-close span {
+	width: 26px;
+	height: 2px;
+	background: #050815;
+	border-radius: 999px;
+	display: block;
+	transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.via-mobile-menu-close {
+	border: none;
+	background: transparent;
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	width: 42px;
+	height: 42px;
+	z-index: 10004;
+}
+.via-mobile-menu-close span:first-child {
+	transform: rotate(45deg);
+}
+.via-mobile-menu-close span:last-child {
+	transform: rotate(-45deg);
+}
+body.via-mobile-menu-open .via-mobile-menu-toggle span:nth-child(1) {
+	transform: translateY(4px) rotate(45deg);
+}
+body.via-mobile-menu-open .via-mobile-menu-toggle span:nth-child(2) {
+	opacity: 0;
+}
+body.via-mobile-menu-open .via-mobile-menu-toggle span:nth-child(3) {
+	transform: translateY(-4px) rotate(-45deg);
+}
+
+@media (max-width: 991px) {
+	.via-menu-container {
+		padding: 0 16px !important;
+		position: relative;
+	}
+	.via-mobile-menu-toggle {
+		display: flex;
+	}
+	.via-mobile-menu-close {
+		display: flex;
+	}
+	.via-navbar-nav {
+		position: fixed;
+		inset: 0;
+		background: #fff;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 120px 32px 40px;
+		gap: 26px;
+		transform: translateX(100%);
+		transition: transform 0.35s ease;
+		box-shadow: 0 40px 80px rgba(0, 0, 0, 0.32);
+		z-index: 10002;
+	}
+	.via-navbar-nav.via-mobile-open {
+		transform: translateX(0);
+	}
+	.via-navbar-nav .via-navbar-nav-item {
+		width: 100%;
+		text-align: center;
+	}
+	.via-navbar-nav-link {
+		font-size: 1.1rem;
+		padding: 12px 0;
+	}
+	body.via-mobile-menu-open {
+		overflow: hidden;
+	}
+	body.via-mobile-menu-open::after {
+		content: "";
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.35);
+		z-index: 10001;
+	}
+}
+
+@media (max-width: 768px) {
+	.via-container,
+	.via-container-logos,
+	.via-menu-container,
+	.metrics-block {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	.via-heading-medium {
+		font-size: clamp(2rem, 6vw, 2.6rem);
+	}
+	.via-banner-home .via-text-lead {
+		font-size: 1rem;
+	}
+	.via-testimonial-track {
+		padding-inline: 16px;
+	}
+}
+</style>
+<script>
+(function () {
+	var nav = document.getElementById("via-mobile-menu");
+	var toggle = document.querySelector(".via-mobile-menu-toggle");
+	var closeButton = document.querySelector(".via-mobile-menu-close");
+	if (!nav || !toggle || !closeButton) {
+		return;
+	}
+	function setOpenState(open) {
+		if (open) {
+			nav.classList.add("via-mobile-open");
+			document.body.classList.add("via-mobile-menu-open");
+			toggle.setAttribute("aria-expanded", "true");
+		} else {
+			nav.classList.remove("via-mobile-open");
+			document.body.classList.remove("via-mobile-menu-open");
+			toggle.setAttribute("aria-expanded", "false");
+		}
+	}
+	toggle.addEventListener("click", function () {
+		setOpenState(!nav.classList.contains("via-mobile-open"));
+	});
+	closeButton.addEventListener("click", function (event) {
+		event.preventDefault();
+		setOpenState(false);
+	});
+	Array.prototype.forEach.call(nav.querySelectorAll("a"), function (link) {
+		link.addEventListener("click", function () {
+			setOpenState(false);
+		});
+	});
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") {
+			setOpenState(false);
+		}
+	});
+})();
+</script>
