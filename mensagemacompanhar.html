@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8"/>
     <title>Blumme | Acompanhar projetos</title>
-    <meta content="O sistema de acompanhamento está em manutenção para garantir que você continue tendo a excelente experiência Blumme" name="description"/>
+    <meta content="Acesse a área de acompanhamento de projetos da Blumme." name="description"/>
     <meta content="Blumme | Acompanhar projetos" property="og:title"/>
-    <meta content="O sistema de acompanhamento está em manutenção, mas estamos prontos para atender você pelo contato oficial." property="og:description"/>
+    <meta content="Entre com seu e-mail e senha para acompanhar seus projetos com a Blumme." property="og:description"/>
     <meta property="og:type" content="website"/>
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="IZv5NHGftN_bQL-yK5q58NwsTj2uCT3AhYims-juln0" name="google-site-verification"/>
-    <link href="https://cdn.prod.website-files.com/64514d114820495aedfecede/css/agencia-website-wis23.webflow.shared.0a0ecae20.min.css" rel="stylesheet" type="text/css" integrity="sha384-Cg7K4geWcfehX5oYxUTgda86S8LO5ONNDP1JcnRcZZEO9ZA1Ii9dqTX9Yy6c8P/K" crossorigin="anonymous"/>
+    <link href="cdn.prod.website-files.com/64514d114820495aedfecede/css/agencia-website-wis23.webflow.shared.226960a52.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -27,7 +27,10 @@
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-N475G7D');
-            jQuery('body').append('<script defer src="https://www.googletagmanager.com/gtag/js?id=UA-42384356-1"><\/script>');
+            var gtagScript = document.createElement('script');
+            gtagScript.defer = true;
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-42384356-1';
+            document.body.appendChild(gtagScript);
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -35,39 +38,203 @@
         }, 4000);
     </script>
     <style>
-        .mensagem-acompanhar {
-            background-image: none !important;
-            background-color: #fff !important;
+        .mensagem-login-hero {
+            background:
+                linear-gradient(135deg, rgba(5, 8, 21, 0.92), rgba(206, 0, 64, 0.82)),
+                url("Imagens/Banner 3A.png") center/cover no-repeat;
+            padding-top: 140px;
+            padding-bottom: 90px;
+            min-height: auto !important;
         }
-        .mensagem-acompanhar .via-overlay-banner-home {
+
+        .mensagem-login-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 430px);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .mensagem-login-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: 0 24px 60px rgba(5, 8, 21, 0.18);
+            color: #050815;
+        }
+
+        .mensagem-login-card p,
+        .mensagem-login-card h2,
+        .mensagem-login-card label {
+            color: #050815 !important;
+        }
+
+        .mensagem-login-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #050815;
+        }
+
+        .mensagem-login-input {
+            min-height: 56px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(5, 8, 21, 0.12);
+            border-radius: 16px;
+            background: #f7f8fb;
+            color: #050815;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .mensagem-login-input:focus {
+            border-color: #ce0040;
+            box-shadow: 0 0 0 4px rgba(206, 0, 64, 0.12);
+        }
+
+        .mensagem-login-alert {
+            display: none;
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: rgba(206, 0, 64, 0.08);
+            border: 1px solid rgba(206, 0, 64, 0.18);
+            color: #9e123d;
+            font-weight: 500;
+        }
+
+        .mensagem-login-alert.is-visible {
+            display: block;
+        }
+
+        .mensagem-login-note {
+            padding: 28px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, #fff 0%, #f8f8fb 100%);
+            box-shadow: 0 18px 45px rgba(5, 8, 21, 0.08);
+        }
+
+        .mensagem-login-note p {
+            color: #050815 !important;
+        }
+
+        .mensagem-login-note .via-text-uppercase {
+            color: #ce0040 !important;
+        }
+
+        .via-footer,
+        .via-footer-logo,
+        .via-footer-menu,
+        .via-footer-copyright,
+        .via-footer-anex,
+        .via-footer-anex .w-layout-grid {
             background: none !important;
+            background-image: none !important;
+            box-shadow: none !important;
         }
-        .mensagem-acompanhar .via-container,
-        .mensagem-acompanhar .via-text-lead,
-        .mensagem-acompanhar .via-heading-medium,
-        .mensagem-acompanhar .via-text-regular,
-        .mensagem-acompanhar .via-link-contrast {
-            color: #000 !important;
+
+        .via-footer-anex::before,
+        .via-footer-anex::after,
+        .grid-43--2::before,
+        .grid-43--2::after {
+            background: none !important;
+            background-image: none !important;
+            content: none !important;
+        }
+
+        @media (max-width: 991px) {
+            .mensagem-login-hero {
+                padding-top: 120px;
+                padding-bottom: 70px;
+            }
+
+            .mensagem-login-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .mensagem-login-card {
+                padding: 28px 22px;
+            }
         }
     </style>
 </head>
 <body data-w-id="5e94a80632825716c03eea08" style="opacity:1">
+<div class="via-mobile-menu-overlay" id="via-mobile-menu-overlay" aria-hidden="true"></div>
+<div class="via-mobile-panel" id="via-mobile-panel" aria-hidden="true">
+    <div class="via-mobile-panel-inner">
+        <a class="via-mobile-panel-link" href="index.html">Início</a>
+        <a class="via-mobile-panel-link" href="quem-somos.html">Quem somos</a>
+        <a class="via-mobile-panel-link" href="contato.html">Contato</a>
+        <a class="via-mobile-panel-link" href="mensagemacompanhar.html">Acompanhar projetos</a>
+    </div>
+    <button class="via-mobile-panel-close" type="button" aria-label="Fechar menu mobile">Fechar</button>
+</div>
+<div data-collapse="medium" data-animation="over-right" data-duration="400" data-easing="ease-in" data-easing2="ease-out" data-w-id="c2f082ca-fb27-d8ad-9faf-b5fbebdefc63" role="banner" class="via-navbar w-nav">
+    <div class="via-menu-container">
+        <div class="via-navbar-left">
+            <div class="via-menu-logo">
+                <a href="index.html" class="via-logo-texto w-inline-block">
+                    <img loading="lazy" src="Imagens/LOGO.png" width="250" alt="Logo Blumme" class="via-logo" style="width:250px;height:auto;max-width:none;"/>
+                </a>
+            </div>
+            <nav role="navigation" id="via-mobile-menu" class="via-navbar-nav w-nav-menu" aria-label="Menu principal">
+                <button type="button" class="via-close via-mobile-menu-close w-inline-block" aria-label="Fechar menu">
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="via-logo-offcanvas">
+                    <a href="#" class="w-inline-block">
+                        <img loading="lazy" src="cdn.prod.website-files.com/64514d114820495aedfecede/64514d11482049c24cfecef2_temp-logo.png" alt="Logo Blumme" class="via-logo-img"/>
+                    </a>
+                </div>
+                <div class="via-navbar-nav-item">
+                    <a href="quem-somos.html" class="via-navbar-nav-link w-nav-link">Quem somos</a>
+                </div>
+                <div class="via-navbar-nav-item">
+                    <a href="contato.html" class="via-navbar-nav-link w-nav-link">Contato</a>
+                </div>
+            </nav>
+        </div>
+        <div class="via-navbar-right">
+            <div class="via-navbar-nav">
+                <div class="via-navbar-nav-item right">
+                    <a href="mensagemacompanhar.html" class="via-navbar-nav-link w--current" aria-current="page" style="color:#ff4b9c!important;font-weight:600;">Acompanhar projetos</a>
+                </div>
+            </div>
+        </div>
+        <button class="via-mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="via-mobile-panel" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div>
 <h1 class="via-hidden">Blumme Engenharia</h1>
-<div data-w-id="mensagem-banner" class="via-banner-interno mensagem-acompanhar" style="background-color:#fff;">
+<div data-w-id="mensagem-banner" class="via-banner-interno mensagem-login-hero">
     <div class="via-overlay-banner-home">
         <div class="via-width-1-1">
-                            <div class="via-container" style="color:#000;">
+            <div class="via-container via-contrast">
                 <div class="via-margin-large-bottom">
-                    <div class="w-layout-grid grid-73">
-                        <div>
+                    <div class="mensagem-login-grid">
+                        <div class="via-text-light">
                             <p class="via-text-lead">Acompanhar projetos</p>
-                            <h1 class="via-heading-medium via-text-shadow via-margin-remove-top via-margin-medium-bottom">Estamos atualizando o sistema de acompanhamento</h1>
-                            <p class="via-text-lead via-margin-medium-bottom">O sitema de acompanhar seus projetos está atualizando no momento para melhorar a sua experiência.</p>
-                            <p class="via-text-regular via-margin-medium-bottom">Para acompanhar o andamento da sua solicitação, entre em contato conosco usando os mesmos canais do restante do site.</p>
-                            <div class="via-flex via-flex-wrap" style="gap:16px;">
-                                <a href="contato.html" class="via-button via-button-large w-button">Fale com especialistas</a>
-                                <a href="index.html" class="via-link-contrast">Voltar para o início</a>
+                            <h1 class="via-heading-medium via-text-shadow via-margin-remove-top via-margin-medium-bottom">Entre para acompanhar o andamento do seu projeto</h1>
+                            <p class="via-text-lead via-margin-medium-bottom">Acesse sua área com o mesmo e-mail utilizado no atendimento para verificar as atualizações e o status do processo.</p>
+                            <div class="mensagem-login-note">
+                                <p class="via-text-uppercase via-margin-small-bottom" style="color:#ce0040;">Acesso seguro</p>
                             </div>
+                        </div>
+                        <div class="mensagem-login-card">
+                            <p class="via-text-lead via-margin-remove-top via-margin-small-bottom">Login</p>
+                            <h2 class="via-heading-small via-margin-remove-top via-margin-medium-bottom">Área do cliente Blumme</h2>
+                            <form id="mensagem-login-form">
+                                <label class="mensagem-login-label" for="login-email">E-mail</label>
+                                <input class="mensagem-login-input w-input" id="login-email" name="email" type="email" placeholder="seuemail@empresa.com" required/>
+                                <label class="mensagem-login-label" for="login-senha">Senha</label>
+                                <input class="mensagem-login-input w-input" id="login-senha" name="senha" type="password" placeholder="Digite sua senha" required/>
+                                <button class="via-button via-button-large w-button" type="submit" style="width:100%;">Fazer login</button>
+                                <div id="mensagem-login-alert" class="mensagem-login-alert" role="alert" aria-live="polite">Usuário não cadastrado.</div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -77,10 +244,10 @@
 </div>
 <div class="via-block via-block-large">
     <div class="via-container via-text-center">
-        <p class="via-text-lead via-margin-remove-bottom">Precisa de uma resposta imediata?</p>
-        <h2 class="via-heading-small">O nosso time acompanha todas as solicitações e responde com prioridade</h2>
-        <p class="via-text-regular">Estamos disponíveis por e-mail, WhatsApp e telefone. Informe o mesmo nome e e-mail que usou no acompanhamento para que possamos localizar o seu pedido com agilidade.</p>
-        <a href="contato.html" class="via-button via-button-large w-button">Entrar em contato</a>
+        <p class="via-text-lead via-margin-remove-bottom">Não conseguiu acessar?</p>
+        <h2 class="via-heading-small">Nosso time pode ajudar pelo canal oficial</h2>
+        <p class="via-text-regular">Se o seu cadastro ainda não estiver disponível, fale com a equipe Blumme para validar seus dados e seguir com o atendimento.</p>
+        <a href="contato.html" class="via-button via-button-large w-button">Falar com a Blumme</a>
     </div>
 </div>
 <div data-w-id="227e8675-4d15-78ea-335d-c6085b84b7b7" class="via-footer"><div class="via-footer-logo"><div class="via-container-expand via-text-center-medium"><div class="w-layout-grid grid-43"><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7bb-5b84b7b7"></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7bd-5b84b7b7"><h2 class="via-margin-remove via-block-text-footer">A Blumme atua em um dos mercados mais exigentes da Engenharia Elétrica, desenvolvendo soluções de alta tecnologia com o apoio de uma equipe especializada de engenheiros, analistas e técnicos, focados em entregar serviços personalizados e de máxima qualidade para você.</h2></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7c0-5b84b7b7"><ul role="list" class="via-list-midias-sociais w-list-unstyled"><li class="via-list-midias-sociais-item"><a href="https://www.facebook.com/BlummeTech" target="_blank" class="via-icon-button w-inline-block"><div class="via-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="12.845" height="24.262"><path data-name="Facebook" d="M8.338 24.262V13.2h3.785l.568-4.314H8.338V6.128c0-1.249.352-2.1 2.18-2.1h2.327V.169A32.163 32.163 0 0 0 9.453 0C6.1 0 3.8 2.01 3.8 5.7v3.182H0V13.2h3.8v11.062Z" fill="currentColor"/></svg></div></a></li><li class="via-list-midias-sociais-item"><a href="https://www.instagram.com/blummetech/" target="_blank" class="via-icon-button w-inline-block"><div class="via-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="22.033" height="22.033"><path data-name="Mask" d="M15.953 22.033H6.08A6.087 6.087 0 0 1 0 15.953V6.08A6.087 6.087 0 0 1 6.08 0h9.873a6.087 6.087 0 0 1 6.08 6.08v9.873a6.087 6.087 0 0 1-6.08 6.08ZM6.08 1.954A4.13 4.13 0 0 0 1.954 6.08v9.873a4.13 4.13 0 0 0 4.126 4.126h9.873a4.13 4.13 0 0 0 4.126-4.126V6.08a4.13 4.13 0 0 0-4.126-4.126Zm4.937 14.833a5.77 5.77 0 1 1 5.77-5.77 5.777 5.777 0 0 1-5.77 5.77Zm0-9.555a3.784 3.784 0 1 0 3.783 3.785 3.788 3.788 0 0 0-3.783-3.785Z" fill="currentColor"/></svg></div></a></li></ul></div></div></div></div><div class="via-footer-menu"><div class="via-container-expand via-text-center-small"><div class="w-layout-grid grid-43-new"><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7d1-5b84b7b7" class="via-visible-xxlarge"></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7d2-5b84b7b7"><div class="w-layout-grid grid-44"><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7d4-5b84b7b7"><h3 class="via-margin-remove-top via-margin-bottom"><strong>Brasil</strong></h3><p class="via-margin-top via-margin-bottom via-small">1182 Avenida Brigadeiro Faria Lima.<br/>São Paulo, SP</p></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7e3-5b84b7b7"><h3 class="via-margin-remove-top via-margin-bottom"><strong>Argentina</strong></h3><p class="via-margin-top via-margin-bottom via-small">4630 S. Martin.<br/>Buenos Aires</p></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b7f4-5b84b7b7"><h3 class="via-margin-remove-top via-margin-bottom"><strong>Portugal</strong></h3><p class="via-margin-top via-margin-bottom via-small">57A Rua São Sebastião.<br/>Lisboa</p></div></div></div></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b81d-5b84b7b7" class="via-visible-xxlarge"></div></div></div><div class="via-footer-anex"><div class="via-container-expand via-text-center-medium"><div class="w-layout-grid grid-43--2"><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b821-5b84b7b7" class="via-visible-xlarge"></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b822-5b84b7b7"><h3 class="via-margin-remove"></h3></div><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b826-5b84b7b7" class="via-visible-xlarge"></div></div></div></div><div class="via-footer-copyright"><div class="via-container-expand via-text-center-medium"><div class="w-layout-grid grid-45"><div><div class="w-layout-grid grid-46"><div id="w-node-_227e8675-4d15-78ea-335d-c6085b84b82e-5b84b7b7"><p class="via-margin-remove via-small">BlummeTech | © 2025 Todos os direitos reservados</p></div></div></div></div></div></div><p class="paragraph-2">Designed By <a href="https://www.owlstech.services/" target="_blank" class="link">OwlsTech Service</a></p></div>
@@ -179,6 +346,147 @@
         opacity: 1;
     }
 </style>
+<style>
+    .via-mobile-menu-toggle {
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        width: 46px;
+        height: 46px;
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 6px;
+        z-index: 10005;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .via-mobile-menu-toggle span {
+        width: 26px;
+        height: 2px;
+        background: #050815;
+        border-radius: 999px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-toggle span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-toggle span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    .via-mobile-panel {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 8, 21, 0.98);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 32px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+        z-index: 10004;
+    }
+
+    .via-mobile-panel.via-mobile-panel-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .via-mobile-panel-inner {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .via-mobile-panel-link {
+        color: #fff;
+        font-size: 1.25rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .via-mobile-panel-link:hover {
+        color: #ff4b9c;
+    }
+
+    .via-mobile-panel-close {
+        margin-top: 24px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 999px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+    }
+
+    .via-mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 10003;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    @media (max-width: 991px) {
+        .via-menu-container {
+            padding: 0 16px !important;
+            position: relative;
+        }
+
+        .via-navbar-left .via-navbar-nav {
+            display: none !important;
+        }
+
+        .via-mobile-menu-toggle {
+            display: flex;
+        }
+
+        body.via-mobile-panel-open {
+            overflow: hidden;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .via-container,
+        .via-menu-container {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .via-heading-medium {
+            font-size: clamp(2rem, 6vw, 2.6rem);
+        }
+    }
+</style>
 <script>
     (function unlockPageScroll() {
         function settle() {
@@ -199,44 +507,85 @@
     })();
 </script>
 <script>
-    var monitoraScrollTop;
-    jQuery(document).ready(function(){
-        monitoraScrollTop = jQuery(this).scrollTop();
-        ativarActive(monitoraScrollTop);
-    });
-    jQuery(window).on('scroll', function(){
-        monitoraScrollTop = jQuery(this).scrollTop();
-        ativarActive(monitoraScrollTop);
-    });
-    function ativarActive (monitoraScrollTop) {
-        if(monitoraScrollTop <= 300){
-            jQuery('.via-navbar').removeClass('via-active');
-        } else {
-            jQuery('.via-navbar').addClass('via-active');
+    (function () {
+        var navbar = document.querySelector('.via-navbar');
+        if (!navbar) {
+            return;
         }
-    }
+
+        function ativarActive() {
+            if (window.scrollY <= 300) {
+                navbar.classList.remove('via-active');
+            } else {
+                navbar.classList.add('via-active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', ativarActive);
+        window.addEventListener('scroll', ativarActive);
+    })();
 </script>
 <script>
-    $(function(){
-        $('.via-accordion-title').click(function(){
-            if(jQuery(this).parent('.via-accordion-item').hasClass('via-active')){
-                jQuery(this).parent('.via-accordion-item').removeClass('via-active');
-            }else {
-                jQuery(this).parent('.via-accordion-item').addClass('via-active');
-            }
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.via-accordion-title').forEach(function (title) {
+            title.addEventListener('click', function () {
+                var item = title.closest('.via-accordion-item');
+                if (item) {
+                    item.classList.toggle('via-active');
+                }
+                title.classList.toggle('via-active');
+            });
         });
     });
 </script>
 <script>
-    $(function(){
-        $('.via-accordion-title').on('click', function(){
-            if(jQuery(this).hasClass('via-active')){
-                jQuery(this).removeClass('via-active');
-            }else{
-                jQuery(this).addClass('via-active');
+    (function () {
+        var panel = document.getElementById("via-mobile-panel");
+        var toggle = document.querySelector(".via-mobile-menu-toggle");
+        var closeButton = document.querySelector(".via-mobile-panel-close");
+        var overlay = document.getElementById("via-mobile-menu-overlay");
+        if (panel && toggle && overlay) {
+            function setOpenState(open) {
+                panel.classList.toggle("via-mobile-panel-open", open);
+                document.body.classList.toggle("via-mobile-panel-open", open);
+                panel.setAttribute("aria-hidden", (!open).toString());
+                toggle.setAttribute("aria-expanded", open ? "true" : "false");
             }
-        });
-    });
+
+            function closePanel() {
+                setOpenState(false);
+            }
+
+            toggle.addEventListener("click", function () {
+                setOpenState(!panel.classList.contains("via-mobile-panel-open"));
+            });
+
+            if (closeButton) {
+                closeButton.addEventListener("click", closePanel);
+            }
+
+            overlay.addEventListener("click", closePanel);
+
+            panel.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", closePanel);
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closePanel();
+                }
+            });
+        }
+
+        var form = document.getElementById("mensagem-login-form");
+        var alertBox = document.getElementById("mensagem-login-alert");
+        if (form && alertBox) {
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                alertBox.classList.add("is-visible");
+            });
+        }
+    })();
 </script>
 <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c85e64.js?site=64514d114820495aedfecede" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.prod.website-files.com/64514d114820495aedfecede/js/webflow.4078abcc.304ea31b0fc6d996.js" type="text/javascript"></script>
