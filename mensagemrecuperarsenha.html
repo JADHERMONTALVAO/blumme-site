@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Blumme | Recuperar senha</title>
+    <meta name="description" content="Recupere sua senha para acessar o acompanhamento de projetos da Blumme."/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({ google: { families: ["Space Grotesk:300,regular,500,600,700"] } });</script>
+    <style>
+        :root {
+            --brand-primary: #ce0040;
+            --brand-dark: #050815;
+            --brand-ink: #182233;
+            --brand-surface: #ffffff;
+            --brand-border: rgba(24, 34, 51, 0.16);
+            --brand-success: #0f766e;
+            --brand-danger: #b42318;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            background:
+                radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.12), transparent 36%),
+                linear-gradient(125deg, rgba(5, 8, 21, 0.95), rgba(206, 0, 64, 0.8));
+            min-height: 100vh;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            padding: 18px;
+        }
+
+        .reset-card {
+            width: min(560px, 100%);
+            background: var(--brand-surface);
+            color: var(--brand-dark);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            box-shadow: 0 24px 60px rgba(5, 8, 21, 0.2);
+            padding: 28px 24px;
+        }
+
+        .reset-card h1 {
+            margin: 0 0 8px;
+            font-size: 28px;
+            color: var(--brand-dark);
+        }
+
+        .reset-card p {
+            margin: 0 0 16px;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        .reset-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--brand-ink);
+        }
+
+        .reset-input {
+            width: 100%;
+            min-height: 50px;
+            margin-bottom: 14px;
+            border: 1px solid var(--brand-border);
+            border-radius: 12px;
+            background: #f7f8fb;
+            color: var(--brand-dark);
+            padding: 10px 12px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .reset-input:focus {
+            border-color: var(--brand-primary);
+            box-shadow: 0 0 0 4px rgba(206, 0, 64, 0.14);
+            background: #fff;
+            outline: none;
+        }
+
+        .reset-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .reset-steps {
+            display: flex;
+            gap: 8px;
+            margin: 0 0 16px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .reset-step {
+            flex: 1;
+            text-align: center;
+            border: 1px solid #dbe2ef;
+            border-radius: 999px;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748b;
+            background: #f8fafc;
+        }
+
+        .reset-step.active {
+            color: #fff;
+            background: var(--brand-primary);
+            border-color: var(--brand-primary);
+        }
+
+        .reset-stage {
+            display: none;
+        }
+
+        .reset-stage.active {
+            display: block;
+        }
+
+        .reset-btn {
+            border: 1px solid rgba(24, 34, 51, 0.14);
+            color: var(--brand-dark);
+            background: #fff;
+            border-radius: 999px;
+            padding: 11px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .reset-btn.primary {
+            border-color: var(--brand-primary);
+            background: var(--brand-primary);
+            color: #fff;
+        }
+
+        .reset-alert {
+            display: none;
+            margin-top: 14px;
+            padding: 11px 12px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-size: 14px;
+        }
+
+        .reset-alert.show {
+            display: block;
+        }
+
+        .reset-alert.error {
+            background: #fff0f0;
+            border-color: rgba(180, 35, 24, 0.25);
+            color: var(--brand-danger);
+        }
+
+        .reset-alert.success {
+            background: #edfdfb;
+            border-color: rgba(15, 118, 110, 0.24);
+            color: var(--brand-success);
+        }
+    </style>
+</head>
+<body>
+<main class="reset-card">
+    <h1>Recuperar senha</h1>
+    <p>Informe o e-mail, solicite o código e depois defina uma nova senha.</p>
+    <ul class="reset-steps" aria-label="Etapas da recuperação">
+        <li id="step-indicator-1" class="reset-step active">1. E-mail</li>
+        <li id="step-indicator-2" class="reset-step">2. Código</li>
+        <li id="step-indicator-3" class="reset-step">3. Nova senha</li>
+    </ul>
+    <form id="reset-form">
+        <section id="reset-stage-1" class="reset-stage active">
+            <label class="reset-label" for="reset-email">E-mail</label>
+            <input class="reset-input" id="reset-email" type="email" placeholder="seuemail@empresa.com" autocomplete="username" required/>
+            <div class="reset-actions">
+                <button id="reset-stage1-next-btn" class="reset-btn primary" type="button">Continuar</button>
+                <a class="reset-btn" href="acompanharprojetos.html">Voltar</a>
+            </div>
+        </section>
+
+        <section id="reset-stage-2" class="reset-stage">
+            <label class="reset-label" for="reset-code">Código de recuperação</label>
+            <input class="reset-input" id="reset-code" type="text" placeholder="Código recebido por e-mail" autocomplete="one-time-code" required/>
+            <div class="reset-actions">
+                <button id="reset-stage2-next-btn" class="reset-btn primary" type="button">Continuar</button>
+                <button id="reset-resend-code-btn" class="reset-btn" type="button">Reenviar código</button>
+            </div>
+        </section>
+
+        <section id="reset-stage-3" class="reset-stage">
+            <label class="reset-label" for="reset-new-password">Nova senha</label>
+            <input class="reset-input" id="reset-new-password" type="password" placeholder="Digite a nova senha" autocomplete="new-password" required/>
+
+            <label class="reset-label" for="reset-confirm-password">Confirmar nova senha</label>
+            <input class="reset-input" id="reset-confirm-password" type="password" placeholder="Repita a nova senha" autocomplete="new-password" required/>
+            <div class="reset-actions">
+                <button id="reset-submit-btn" class="reset-btn primary" type="submit">Finalizar</button>
+                <a class="reset-btn" href="acompanharprojetos.html">Voltar ao login</a>
+            </div>
+        </section>
+        <div class="reset-actions" style="margin-top:10px;">
+            <button id="reset-back-btn" class="reset-btn" type="button">Etapa anterior</button>
+        </div>
+        <div id="reset-alert" class="reset-alert" role="alert" aria-live="polite"></div>
+    </form>
+</main>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1692.0.min.js"></script>
+<script>
+    window.BLUMME_AUTH_STORAGE_PREFIX = "acompanhamento";
+    window.BLUMME_APP_CONFIG = window.BLUMME_APP_CONFIG || {
+        region: "us-east-1",
+        userPoolId: "us-east-1_KkpJ6KqUV",
+        clientId: "1hejqatcu5uigua2jeg43jo6hn",
+        identityPoolId: "us-east-1:ea046255-0aa2-4acd-b4ba-5070141cb6d1"
+    };
+</script>
+<script src="js/services/appConfig.js"></script>
+<script src="js/services/authService.js"></script>
+<script src="js/pages/mensagemrecuperarsenha.js"></script>
+</body>
+</html>
+

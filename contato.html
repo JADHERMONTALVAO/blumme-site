@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
 <meta charset="utf-8"/>
 <title>Contato | Blumme</title>
@@ -32,6 +32,7 @@
 	})(window,document,'script','dataLayer','GTM-N475G7D');
 		//End Google Tag Manager
 		
+		/*
 		// Global site tag (gtag.js) - Google Analytics
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -42,6 +43,7 @@
 		gtagScript.defer = true;
 		gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-42384356-1';
 		document.body.appendChild(gtagScript);
+		*/
 	}, 4000);
 </script>
 <style>
@@ -60,12 +62,13 @@
     <div class="via-mobile-panel-inner">
       <a class="via-mobile-panel-link" href="index.html">Início</a>
       <a class="via-mobile-panel-link" href="quem-somos.html">Quem somos</a>
+      <a class="via-mobile-panel-link" href="PresencaGlobal.html">Presença global</a>
       <a class="via-mobile-panel-link" href="contato.html">Contato</a>
-      <a class="via-mobile-panel-link" href="mensagemacompanhar.html">Acompanhar projetos</a>
+      <a class="via-mobile-panel-link" href="acompanharprojetos.html">Acompanhar projetos</a>
     </div>
     <button class="via-mobile-panel-close" type="button" aria-label="Fechar menu mobile">Fechar</button>
   </div>
-<div data-collapse="medium" data-animation="over-right" data-duration="400" data-easing="ease-in" data-easing2="ease-out" data-w-id="c2f082ca-fb27-d8ad-9faf-b5fbebdefc63" role="banner" class="via-navbar w-nav">
+<div data-collapse="medium" data-animation="over-right" data-duration="400" data-easing="ease-in" data-easing2="ease-out" data-w-id="c2f082ca-fb27-d8ad-9faf-b5fbebdefc63" role="banner" class="via-navbar via-navbar-scroll-hidden w-nav">
 <div class="via-menu-container">
 <div class="via-navbar-left">
 <div class="via-menu-logo">
@@ -82,11 +85,14 @@
 </button>
 <div class="via-logo-offcanvas">
 <a href="#" class="w-inline-block">
-<img loading="lazy" src="cdn.prod.website-files.com/64514d114820495aedfecede/64514d11482049c24cfecef2_temp-logo.png" alt="Logo Talento - Gestão" class="via-logo-img"/>
+<img loading="lazy" src="cdn.prod.website-files.com/64514d114820495aedfecede/64514d11482049c24cfecef2_temp-logo.png" alt="Logo Blumme" class="via-logo-img"/>
 </a>
 </div>
 <div class="via-navbar-nav-item">
 <a href="quem-somos.html" class="via-navbar-nav-link w-nav-link">Quem somos</a>
+</div>
+<div class="via-navbar-nav-item">
+<a href="PresencaGlobal.html" class="via-navbar-nav-link w-nav-link">Presença global</a>
 </div>
 <div class="via-navbar-nav-item">
 <a href="contato.html" class="via-navbar-nav-link w-nav-link w--current" aria-current="page">Contato</a>
@@ -162,11 +168,25 @@
 </a>
 </div>
 <div class="via-dropdown-menu-item">
-<a href="contato.html" class="via-link-dropdown w-inline-block w--current" aria-current="page">
+<a href="PresencaGlobal.html" class="via-link-dropdown w-inline-block">
 <div class="w-layout-grid grid-33">
 <div>
 <div class="via-maker-list">
 <strong>3</strong>
+</div>
+</div>
+<div>
+<p class="via-margin-remove">Presença global</p>
+</div>
+</div>
+</a>
+</div>
+<div class="via-dropdown-menu-item">
+<a href="contato.html" class="via-link-dropdown w-inline-block w--current" aria-current="page">
+<div class="w-layout-grid grid-33">
+<div>
+<div class="via-maker-list">
+<strong>4</strong>
 </div>
 </div>
 <div>
@@ -180,7 +200,7 @@
 <div class="w-layout-grid grid-33">
 <div>
 <div class="via-maker-list">
-<strong>4</strong>
+<strong>5</strong>
 </div>
 </div>
 <div>
@@ -193,7 +213,7 @@
 </div>
 </div>
 <div class="via-navbar-nav-item right">
-<a href="mensagemacompanhar.html" class="via-navbar-nav-link" style="color:#ff4b9c!important;font-weight:600;">Acompanhar projetos</a>
+<a href="acompanharprojetos.html" class="via-navbar-nav-link" style="color:#ff4b9c!important;font-weight:600;">Acompanhar projetos</a>
 </div>
 </div>
 </div>
@@ -237,7 +257,7 @@
 <article class="via-card-contact">
 <p class="via-text-uppercase via-margin-small-bottom">Brasil</p>
 <h3 class="via-heading-small via-margin-small-bottom">Hub Nacional</h3>
-<p class="via-text-regular">Converse diretamente com a gente via Whatsapp.</p>
+<p class="via-text-regular">Converse diretamente com a gente via WhatsApp.</p>
 <a class="via-button via-button-large via-button-primary"
    href="https://api.whatsapp.com/send?phone=5534998897611&text=Ol%C3%A1%2C+gostaria+de+conversar+com+a+Blumme"
    target="_blank" rel="noopener noreferrer"
@@ -369,6 +389,7 @@
   gap: 24px;
 }
 .via-card-contact {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -378,15 +399,63 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
   min-height: 260px;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+}
+.via-card-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(96, 213, 242, .22), transparent 34%),
+    linear-gradient(135deg, rgba(255, 75, 156, .10), transparent 48%);
+  opacity: 0;
+  transition: opacity .32s ease;
+  pointer-events: none;
+}
+.via-card-contact > * {
+  position: relative;
+  z-index: 1;
+}
+.via-card-contact:hover,
+.via-card-contact:focus-within {
+  transform: translateY(-8px);
+  border-color: rgba(255, 75, 156, .34);
+  box-shadow: 0 34px 70px rgba(0, 0, 0, .14), 0 0 0 1px rgba(96, 213, 242, .18);
+}
+.via-card-contact:hover::before,
+.via-card-contact:focus-within::before {
+  opacity: 1;
 }
 .via-card-contact .via-heading-small {
   font-weight: 600;
+  transition: color .32s ease;
+}
+.via-card-contact:hover .via-heading-small,
+.via-card-contact:focus-within .via-heading-small {
+  color: #ce0040;
+}
+.via-card-contact .via-button {
+  transition: transform .28s ease, box-shadow .28s ease, filter .28s ease;
+}
+.via-card-contact:hover .via-button,
+.via-card-contact:focus-within .via-button {
+  transform: translateY(-2px);
+  filter: saturate(1.12);
+  box-shadow: 0 18px 36px rgba(96, 213, 242, .36);
 }
 .contact-email-link {
   margin-top: auto;
   font-weight: 600;
   color: #111;
   text-decoration: none;
+  transition: color .28s ease, transform .28s ease;
+}
+.via-card-contact:hover .contact-email-link,
+.via-card-contact:focus-within .contact-email-link {
+  color: #ce0040;
+  transform: translateX(4px);
 }
 @media (max-width: 767px) {
   .contact-grid {
@@ -425,7 +494,7 @@
 }
 
 .via-navbar {
-	position: sticky !important;
+	position: fixed !important;
 	top: 0 !important;
 	left: 0;
 	right: 0;
@@ -472,6 +541,19 @@
 }
 
 @media (min-width: 992px) {
+  .via-navbar {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.32s ease, opacity 0.32s ease;
+    pointer-events: auto;
+  }
+
+  .via-navbar.via-navbar-scroll-hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
 	.via-navbar-nav-link:not(.via-navbar-nav-link-icon):before {
 		content: "";
 		width: 100%;
@@ -531,23 +613,66 @@
 
 <!-- Monitora scroll para active do menu -->
 <script>
-	var monitoraScrollTop;
-	
-	jQuery(document).ready(function(){
-		monitoraScrollTop = jQuery(this).scrollTop();
-		ativarActive(monitoraScrollTop);
-	})
-	jQuery(window).on('scroll', function(){
-		monitoraScrollTop = jQuery(this).scrollTop();
-		ativarActive(monitoraScrollTop);
-	})
-	function ativarActive (monitoraScrollTop) {
-		if(monitoraScrollTop <= 300){
-			jQuery('.via-navbar').removeClass('via-active');
-		} else {
-			jQuery('.via-navbar').addClass('via-active');
+	(function () {
+		var navbar = document.querySelector('.via-navbar');
+		if (!navbar) return;
+
+		var lastY = window.scrollY || window.pageYOffset || 0;
+		var delta = 6;
+		var introDone = false;
+
+		function showNavbar() {
+			navbar.classList.remove('via-navbar-scroll-hidden');
 		}
-	}
+
+		function hideNavbar() {
+			navbar.classList.add('via-navbar-scroll-hidden');
+		}
+
+		function handleScroll() {
+			if (window.innerWidth < 992) {
+				showNavbar();
+				return;
+			}
+
+			var currentY = window.scrollY || window.pageYOffset || 0;
+
+			if (currentY <= 10) {
+				showNavbar();
+				lastY = currentY;
+				return;
+			}
+
+			if (currentY > lastY + delta) {
+				hideNavbar();
+			} else if (currentY < lastY - delta) {
+				showNavbar();
+			}
+
+			lastY = currentY;
+		}
+
+		function runIntro() {
+			if (introDone || window.innerWidth < 992) {
+				showNavbar();
+				return;
+			}
+			introDone = true;
+			hideNavbar();
+			navbar.style.transitionDuration = '0.56s, 0.56s';
+			setTimeout(function () {
+				showNavbar();
+				setTimeout(function () {
+					navbar.style.transitionDuration = '';
+				}, 600);
+			}, 180);
+		}
+
+		document.addEventListener('DOMContentLoaded', runIntro);
+		window.addEventListener('load', runIntro);
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		window.addEventListener('resize', handleScroll);
+	})();
 </script>
 <!-- Fim monitora scroll para active do menu -->
 
@@ -872,6 +997,12 @@ body.via-mobile-panel-open .via-mobile-menu-overlay {
 </body>
 
 </html>
+
+
+
+
+
+
 
 
 

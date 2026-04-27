@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presença global | Blumme</title>
+  <meta name="description" content="Presença global da Blumme por países." />
+  <link href="cdn.prod.website-files.com/64514d114820495aedfecede/css/agencia-website-wis23.webflow.shared.226960a52.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/" rel="preconnect" />
+  <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="anonymous" />
+  <script src="ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({ google: { families: ["Space Grotesk:300,regular,500,600,700"] } });</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="Imagens/favicon.png" rel="shortcut icon" type="image/png" />
+  <link href="Imagens/favicon.png" rel="apple-touch-icon" type="image/png" />
+
+  <style>
+    body {
+      background: #05070c;
+    }
+
+    .via-navbar,
+    .via-navbar.via-active,
+    .via-navbar.w-nav,
+    .via-navbar .via-menu-container,
+    .via-navbar .w-nav-menu,
+    .w-nav,
+    .w-nav-menu,
+    .w-nav-overlay,
+    .w-dropdown-list,
+    .w-dropdown-toggle,
+    .w-dropdown,
+    .w-nav-button {
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .via-navbar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 9999 !important;
+    }
+
+    .via-navbar .via-menu-container {
+      width: 100% !important;
+      padding: 0 32px !important;
+      background: #fff !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+      border-radius: 0;
+      height: 80px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+    }
+
+    .via-navbar-left,
+    .via-navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .via-navbar .via-navbar-nav-link,
+    .via-navbar .via-navbar-nav-link *,
+    .via-navbar .via-icon-menu {
+      color: #000 !important;
+    }
+
+    .via-navbar .via-navbar-nav {
+      display: flex !important;
+      align-items: center !important;
+      gap: 20px;
+    }
+
+    .via-mobile-menu-toggle {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      width: 46px;
+      height: 46px;
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      flex-direction: column;
+      gap: 6px;
+      z-index: 10005;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .via-mobile-menu-toggle span {
+      width: 26px;
+      height: 2px;
+      background: #050815;
+      border-radius: 999px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-toggle span:nth-child(1) {
+      transform: translateY(4px) rotate(45deg);
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-toggle span:nth-child(3) {
+      transform: translateY(-4px) rotate(-45deg);
+    }
+
+    .via-mobile-panel {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 21, 0.98);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+      z-index: 10004;
+    }
+
+    .via-mobile-panel.via-mobile-panel-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .via-mobile-panel-inner {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .via-mobile-panel-link {
+      color: #fff;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .via-mobile-panel-link:hover {
+      color: #ff4b9c;
+    }
+
+    .via-mobile-panel-close {
+      margin-top: 24px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+
+    .via-mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 10003;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    body.via-mobile-panel-open .via-mobile-menu-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (min-width: 992px) {
+      .via-navbar {
+        transform: translateY(0);
+        opacity: 1;
+        transition: transform 0.32s ease, opacity 0.32s ease;
+        pointer-events: auto;
+      }
+
+      .via-navbar.via-navbar-scroll-hidden {
+        transform: translateY(-110%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .via-navbar-nav-link:not(.via-navbar-nav-link-icon):before {
+        content: "";
+        width: 100%;
+        height: 0;
+        position: absolute;
+        bottom: -4px;
+        background: #000;
+        opacity: 0;
+        transition: .3s ease-in-out;
+      }
+
+      .via-navbar-nav-link:hover:before,
+      .via-navbar-nav-link:focus:before,
+      .via-navbar-nav-link.w--current:before,
+      .via-navbar-nav-link.w--open:before {
+        height: 1px;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .via-navbar .via-menu-container {
+        padding: 0 16px !important;
+      }
+
+      .via-navbar-nav-right .via-navbar-nav-item.right,
+      .via-navbar-nav .via-navbar-nav-item.right,
+      .via-navbar-left .via-navbar-nav {
+        display: none !important;
+      }
+
+      .via-mobile-menu-toggle {
+        display: flex;
+      }
+
+      body.via-mobile-panel-open {
+        overflow: hidden;
+      }
+    }
+
+    .portfolio-hero {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      margin: 112px 0 34px;
+      border-radius: 0;
+      overflow: hidden;
+      background: #01030a;
+      border: 1px solid #101827;
+      box-shadow: 0 24px 56px rgba(2, 6, 16, .38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(28px, 4vw, 56px);
+      isolation: isolate;
+    }
+
+    .portfolio-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(32, 46, 70, .22) 0%, rgba(32, 46, 70, 0) 42%),
+        radial-gradient(circle at 82% 84%, rgba(26, 39, 62, .20) 0%, rgba(26, 39, 62, 0) 44%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .portfolio-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: .02em;
+      font-size: clamp(58px, 11vw, 170px);
+      line-height: 1.08;
+      white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(98, 120, 158, .33);
+      text-align: center;
+      user-select: none;
+    }
+
+    .portfolio-hero-bg.is-top {
+      align-items: flex-start;
+      padding-top: 10px;
+    }
+
+    .portfolio-hero-bg.is-bottom {
+      align-items: flex-end;
+      padding-bottom: 10px;
+    }
+
+    .portfolio-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #f3f6ff;
+      max-width: 860px;
+    }
+
+    .portfolio-hero-eyebrow {
+      margin: 0 0 14px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      color: #a8b7d4;
+      font-weight: 600;
+    }
+
+    .portfolio-hero h1 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 66px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .portfolio-map-shell {
+      width: min(1280px, 94vw);
+      margin: 24px auto 54px;
+      color: #eef4ff;
+    }
+
+    .portfolio-map-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
+      gap: 0;
+      min-height: 620px;
+      overflow: hidden;
+      border: 1px solid rgba(188, 205, 235, .18);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.05) 1px, transparent 1px),
+        radial-gradient(circle at 48% 45%, rgba(255,255,255,.11), transparent 34%),
+        #111418;
+      background-size: 180px 180px, 180px 180px, auto, auto;
+      box-shadow: 0 30px 80px rgba(3, 6, 12, .35);
+      isolation: isolate;
+    }
+
+    .portfolio-map-panel::before,
+    .portfolio-map-panel::after {
+      content: "";
+      position: absolute;
+      inset: -22% -8%;
+      z-index: -1;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      transform: rotate(-9deg);
+    }
+
+    .portfolio-map-panel::after {
+      inset: -40% 10%;
+      transform: rotate(11deg);
+      opacity: .7;
+    }
+
+    .world-map-stage {
+      position: relative;
+      align-self: center;
+      width: 100%;
+      aspect-ratio: 1381 / 1139;
+      min-height: 0;
+      overflow: hidden;
+      background: #111418;
+    }
+
+    .world-map-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: contrast(1.03) brightness(.96);
+    }
+
+    .country-hotspot {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      left: var(--x);
+      top: var(--y);
+      --label-left: calc(100% + 8px);
+      --label-right: auto;
+      --label-top: 50%;
+      --label-transform: translateY(-50%);
+      transform: translate(-50%, -50%);
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      z-index: 5;
+      padding: 0;
+    }
+
+    .country-hotspot::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: inherit;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 0 18px rgba(255,255,255,.95), 0 0 46px rgba(255,75,156,.52), 0 0 90px rgba(73,176,255,.32);
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+
+    .country-hotspot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: inherit;
+      animation: pulseCountry 2.4s ease-out infinite;
+    }
+
+    .country-hotspot span {
+      position: absolute;
+      left: var(--label-left);
+      right: var(--label-right);
+      top: var(--label-top);
+      transform: var(--label-transform);
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      color: #f8fbff;
+      background: rgba(12, 16, 23, .78);
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+    }
+
+    .country-hotspot.is-active::before,
+    .country-hotspot:hover::before,
+    .country-hotspot:focus-visible::before {
+      transform: scale(1.45);
+      box-shadow: 0 0 24px rgba(255,255,255,1), 0 0 64px rgba(255,75,156,.72), 0 0 110px rgba(73,176,255,.46);
+    }
+
+    @keyframes pulseCountry {
+      from { opacity: .8; transform: scale(.72); }
+      to { opacity: 0; transform: scale(1.85); }
+    }
+
+    .country-hotspot.is-portugal { --x: 44.7%; --y: 39.1%; --size: 32px; --label-left: auto; --label-right: calc(100% + 10px); }
+    .country-hotspot.is-brasil { --x: 30%; --y: 64%; --size: 50px; --label-left: calc(100% + 10px); }
+    .country-hotspot.is-argentina { --x: 26.4%; --y: 72.8%; --size: 38px; --label-left: calc(100% + 10px); }
+    .country-hotspot.is-panama { --x: 20.8%; --y: 55%; --size: 30px; --label-left: auto; --label-right: calc(100% + 10px); }
+    .country-hotspot.is-franca { --x: 47.2%; --y: 35%; --size: 30px; --label-left: calc(100% + 10px); }
+    .country-hotspot.is-espanha { --x: 46.6%; --y: 39.2%; --size: 30px; --label-left: calc(100% + 10px); }
+    .country-hotspot.is-honduras { --x: 19.7%; --y: 53.2%; --size: 28px; --label-left: calc(100% + 10px); --label-right: auto; }
+    .country-hotspot.is-colombia { --x: 22.4%; --y: 59.3%; --size: 32px; --label-left: calc(100% + 10px); }
+    .country-hotspot.is-chile { --x: 25.5%; --y: 78%; --size: 30px; --label-left: auto; --label-right: calc(100% + 10px); }
+
+    .portfolio-country-panel {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: clamp(22px, 2.6vw, 34px);
+      background: linear-gradient(180deg, rgba(9,12,18,.92), rgba(12,15,21,.82));
+      border-left: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .country-kicker {
+      margin: 0 0 10px;
+      color: #aeb9c9;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-country-panel h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(28px, 3.5vw, 48px);
+      line-height: 1;
+    }
+
+    .country-count {
+      margin: 12px 0 22px;
+      color: #c8d1df;
+      font-size: 15px;
+      line-height: 1.45;
+      white-space: pre-line;
+    }
+
+    .country-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      max-height: 430px;
+      overflow-y: auto;
+      padding-right: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,75,156,.7) rgba(255,255,255,.08);
+    }
+
+    .country-gallery::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .country-gallery::-webkit-scrollbar-track {
+      background: rgba(255,255,255,.08);
+    }
+
+    .country-gallery::-webkit-scrollbar-thumb {
+      background: rgba(255,75,156,.7);
+    }
+
+    .country-gallery figure {
+      position: relative;
+      min-height: 185px;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      background: #05070b;
+    }
+
+    .country-gallery img {
+      width: 100%;
+      height: 100%;
+      min-height: 185px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: saturate(1.06) contrast(1.04);
+      transform: scale(1.02);
+      transition: transform .45s ease, filter .45s ease;
+    }
+
+    .country-gallery figure:hover img {
+      transform: scale(1.08);
+      filter: brightness(.82) saturate(1.12) contrast(1.08);
+    }
+
+    .confidential-card {
+      grid-column: 1 / -1;
+      min-height: 220px;
+      margin-top: 18px;
+      padding: clamp(22px, 3vw, 34px) clamp(34px, 4vw, 52px) clamp(22px, 3vw, 34px) clamp(22px, 3vw, 34px);
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(135deg, rgba(255,75,156,.18), rgba(73,176,255,.12)),
+        rgba(5, 7, 11, .96);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .confidential-card h3 {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.05;
+    }
+
+    .confidential-card p {
+      margin: 0;
+      color: #d6deea;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .country-gallery figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 34px 12px 12px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.25;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.78));
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .28s ease, transform .28s ease;
+      pointer-events: none;
+    }
+
+    .country-gallery figure:hover figcaption,
+    .country-gallery figure:focus-within figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-footer {
+      width: min(1240px, 94vw);
+      margin: 0 auto 36px;
+      text-align: center;
+      color: #657088;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .portfolio-map-panel { grid-template-columns: 1fr; }
+      .world-map-stage { max-height: none; }
+      .portfolio-country-panel { border-left: 0; border-top: 1px solid rgba(255,255,255,.10); }
+    }
+
+    @media (max-width: 560px) {
+      .portfolio-hero {
+        margin-top: 92px;
+        min-height: 300px;
+        border-radius: 0;
+      }
+      .portfolio-hero-bg {
+        font-size: clamp(36px, 10vw, 74px);
+      }
+      .portfolio-map-shell { width: 100%; margin-top: 16px; }
+      .portfolio-map-panel { min-height: auto; border-left: 0; border-right: 0; }
+      .world-map-stage { width: 100%; }
+      .country-hotspot.is-portugal { --x: 44.7%; --y: 39.1%; --size: 26px; --label-left: auto; --label-right: calc(100% + 8px); }
+      .country-hotspot.is-brasil { --x: 30%; --y: 64%; --size: 40px; --label-left: calc(100% + 8px); }
+      .country-hotspot.is-argentina { --x: 26.4%; --y: 72.8%; --size: 32px; --label-left: calc(100% + 8px); }
+      .country-hotspot.is-panama { --x: 20.8%; --y: 55%; --size: 26px; --label-left: auto; --label-right: calc(100% + 8px); }
+      .country-hotspot.is-franca { --x: 47.2%; --y: 35%; --size: 25px; --label-left: calc(100% + 8px); }
+      .country-hotspot.is-espanha { --x: 46.6%; --y: 39.2%; --size: 25px; --label-left: calc(100% + 8px); }
+      .country-hotspot.is-honduras { --x: 19.7%; --y: 53.2%; --size: 24px; --label-left: calc(100% + 8px); --label-right: auto; }
+      .country-hotspot.is-colombia { --x: 22.4%; --y: 59.3%; --size: 26px; --label-left: calc(100% + 8px); }
+      .country-hotspot.is-chile { --x: 25.5%; --y: 78%; --size: 25px; --label-left: auto; --label-right: calc(100% + 8px); }
+      .country-hotspot span { font-size: 11px; }
+      .country-gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-w-id="5e94a80632825716c03eea08" style="opacity:1">
+  <div class="via-mobile-menu-overlay" id="via-mobile-menu-overlay" aria-hidden="true"></div>
+
+  <div data-collapse="medium" data-animation="over-right" data-duration="400" data-easing="ease-in" data-easing2="ease-out" data-w-id="c2f082ca-fb27-d8ad-9faf-b5fbebdefc63" role="banner" class="via-navbar via-navbar-scroll-hidden w-nav">
+    <div class="via-menu-container">
+      <div class="via-navbar-left">
+        <div class="via-menu-logo">
+          <a href="index.html" class="via-logo-texto w-inline-block">
+            <img loading="lazy" src="Imagens/LOGO.png" width="250" alt="Logo Blumme" class="via-logo" style="width:250px;height:auto;max-width:none;" />
+          </a>
+        </div>
+
+        <nav role="navigation" id="via-mobile-menu" class="via-navbar-nav w-nav-menu" aria-label="Menu principal">
+          <button type="button" class="via-close via-mobile-menu-close w-inline-block" aria-label="Fechar menu"><span></span><span></span></button>
+          <div class="via-logo-offcanvas"><a href="#" class="w-inline-block"><img loading="lazy" src="cdn.prod.website-files.com/64514d114820495aedfecede/64514d11482049c24cfecef2_temp-logo.png" alt="Logo Blumme" class="via-logo-img" /></a></div>
+          <div class="via-navbar-nav-item"><a href="quem-somos.html" class="via-navbar-nav-link w-nav-link">Quem somos</a></div>
+          <div class="via-navbar-nav-item"><a href="PresencaGlobal.html" class="via-navbar-nav-link w-nav-link w--current" aria-current="page">Presença global</a></div>
+          <div class="via-navbar-nav-item"><a href="contato.html" class="via-navbar-nav-link w-nav-link">Contato</a></div>
+        </nav>
+      </div>
+
+      <div class="via-navbar-right">
+        <div class="via-navbar-nav">
+          <div class="via-navbar-nav-item right"><a href="acompanharprojetos.html" class="via-navbar-nav-link" style="color:#ff4b9c!important;font-weight:600;">Acompanhar projetos</a></div>
+        </div>
+      </div>
+
+      <button class="via-mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="via-mobile-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+
+  <div class="via-mobile-panel" id="via-mobile-panel" aria-hidden="true">
+    <div class="via-mobile-panel-inner">
+      <a class="via-mobile-panel-link" href="index.html">Início</a>
+      <a class="via-mobile-panel-link" href="quem-somos.html">Quem somos</a>
+      <a class="via-mobile-panel-link" href="PresencaGlobal.html">Presença global</a>
+      <a class="via-mobile-panel-link" href="contato.html">Contato</a>
+      <a class="via-mobile-panel-link" href="acompanharprojetos.html">Acompanhar projetos</a>
+    </div>
+    <button type="button" class="via-mobile-panel-close" aria-label="Fechar menu mobile">Fechar</button>
+  </div>
+
+  <section class="portfolio-hero" aria-label="Introdução da Presença global">
+    <div class="portfolio-hero-bg is-top" aria-hidden="true">Presença global</div>
+    <div class="portfolio-hero-bg is-bottom" aria-hidden="true">Presença global</div>
+    <div class="portfolio-hero-content">
+      <p class="portfolio-hero-eyebrow">Presença global</p>
+      <h1>Presença global da Blumme</h1>
+    </div>
+  </section>
+
+  <section class="portfolio-map-shell" aria-label="Presença global por país">
+    <div class="portfolio-map-panel">
+      <div class="world-map-stage" aria-label="Mapa mundi interativo">
+        <img class="world-map-image" src="Imagens/Mapa.png" alt="Mapa mundi" loading="eager" />
+
+        <button class="country-hotspot is-brasil is-active" type="button" data-country="brasil" aria-label="Ver projetos no Brasil">
+          <span>Brasil</span>
+        </button>
+        <button class="country-hotspot is-portugal" type="button" data-country="portugal" aria-label="Ver projetos em Portugal">
+          <span>Portugal</span>
+        </button>
+        <button class="country-hotspot is-argentina" type="button" data-country="argentina" aria-label="Ver projetos na Argentina">
+          <span>Argentina</span>
+        </button>
+        <button class="country-hotspot is-panama" type="button" data-country="panama" aria-label="Ver projetos no Panamá">
+          <span>Panamá</span>
+        </button>
+        <button class="country-hotspot is-franca" type="button" data-country="franca" aria-label="Ver projetos na França">
+          <span>França</span>
+        </button>
+        <button class="country-hotspot is-espanha" type="button" data-country="espanha" aria-label="Ver projetos na Espanha">
+          <span>Espanha</span>
+        </button>
+        <button class="country-hotspot is-honduras" type="button" data-country="honduras" aria-label="Ver projetos em Honduras">
+          <span>Honduras</span>
+        </button>
+        <button class="country-hotspot is-colombia" type="button" data-country="colombia" aria-label="Ver projetos na Colômbia">
+          <span>Colômbia</span>
+        </button>
+        <button class="country-hotspot is-chile" type="button" data-country="chile" aria-label="Ver projetos no Chile">
+          <span>Chile</span>
+        </button>
+      </div>
+
+      <aside class="portfolio-country-panel" aria-live="polite">
+        <p class="country-kicker">Projetos em destaque</p>
+        <h2 id="countryName">Brasil</h2>
+        <p class="country-count" id="countrySummary"></p>
+        <div class="country-gallery" id="countryGallery"></div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="portfolio-footer">BlummeTech | 2026 Todos os direitos reservados</footer>
+
+  <script>
+    const portfolioCountries = {
+      brasil: {
+        name: "Brasil",
+        summary: "Projetos com autorização para divulgação.\nImagens e modelagens 3D compartilhadas conforme autorização dos clientes.",
+        projects: [
+          ["1.png", "Projeto Luminotécnico - Goiás"],
+          ["4.png", "Carport Solar - Minas Gerais"],
+          ["6.png", "Projeto Elétrico Solar - São Paulo"],
+          ["9.png", "Projeto Elétrico e Padrão de Entrada Coletivo - Mato Grosso"],
+          ["12.png", "Projeto Elétrico Solar - São Paulo"],
+          ["16.png", "Projeto de Geração de Emergência - Minas Gerais"],
+          ["21.png", "Projeto Elétrico Solar - Goiás"],
+          ["23.png", "Projeto Elétrico Solar - Amapá"],
+          ["25.png", "Projeto Elétrico para Cabine de Subestação - Bahia"],
+          ["26.png", "Projeto Elétrico Solar - Minas Gerais"],
+          ["27.png", "Projeto Elétrico Solar - Paraná"],
+          ["29.png", "Projeto Elétrico de Bombeamento - Goiás"],
+          ["30.png", "Projeto Elétrico de Subestação de Energias - Goiás"],
+          ["32.png", "Projeto Elétrico Solar - São Paulo"],
+          ["33.png", "Projeto Elétrico de Subestação de Energias - Goiás"],
+          ["35.png", "Projeto Elétrico Solar - São Paulo"],
+          ["37.png", "Projeto Elétrico de Subestação de Energias - Goiás"],
+          ["39.png", "Projeto Elétrico Solar - Rio de Janeiro"],
+          ["42.png", "Projeto Elétrico de Subestação de Energias - Goiás"],
+          ["44.png", "Projeto Elétrico de Subestação de Energias - Minas Gerais"],
+          ["45.png", "Projeto Elétrico de Subestação de Energias - Tocantins"],
+          ["46.png", "Projeto Elétrico Solar - Mato Grosso"],
+          ["49.png", "Projeto de Geração de Emergência - São Paulo"],
+          ["53.png", "Projeto Elétrico Solar - Mato Grosso"],
+          ["56.png", "Projeto Elétrico de Subestação de Energias - Tocantins"],
+          ["62.png", "Projeto Elétrico Solar - Região Norte do Brasil"],
+          ["63.png", "Projeto Elétrico de Subestação de Energias - Minas Gerais"],
+          ["64.png", "Projeto Elétrico de Subestação de Energias - Minas Gerais"],
+          ["65.png", "Projeto Elétrico de Subestação de Energias - Goiás"],
+          ["68.png", "Projeto Elétrico e Luminotécnico - São Paulo"]
+        ]
+      },
+      portugal: {
+        name: "Portugal",
+        summary: "Projetos com autorização para divulgação.\nImagens e modelagens 3D compartilhadas conforme autorização dos clientes.",
+        projects: [
+          ["69.png", "Projeto Elétrico e Luminotécnico - Lisboa - Portugal"],
+          ["72.png", "Projeto Elétrico e Luminotécnico - Lisboa - Portugal"],
+          ["73.png", "Projeto Elétrico e Luminotécnico - Lisboa - Portugal"]
+        ]
+      },
+      argentina: {
+        name: "Argentina",
+        summary: "Projetos com autorização para divulgação.\nImagens e modelagens 3D compartilhadas conforme autorização dos clientes.",
+        projects: [
+          ["70.png", "Projeto Elétrico e Luminotécnico - Buenos Aires - Argentina"],
+          ["71.png", "Projeto Elétrico e Luminotécnico - Buenos Aires - Argentina"],
+          ["74.png", "Projeto Elétrico e Luminotécnico - Buenos Aires - Argentina"],
+          ["75.png", "Projeto Elétrico e Luminotécnico - Buenos Aires - Argentina"]
+        ]
+      },
+      panama: {
+        name: "Panamá",
+        summary: "Projetos com autorização para divulgação.\nImagens e modelagens 3D compartilhadas conforme autorização dos clientes.",
+        projects: [
+          ["76.png", "Projeto Elétrico e Luminotécnico - Cidade do Panamá - Panamá"],
+          ["77.png", "Projeto Elétrico e Luminotécnico - Cidade do Panamá - Panamá"],
+          ["78.png", "Projeto Elétrico e Luminotécnico - Cidade do Panamá - Panamá"],
+          ["79.png", "Projeto Elétrico e Luminotécnico - Cidade do Panamá - Panamá"]
+        ]
+      },
+      franca: {
+        name: "França",
+        summary: "",
+        confidential: {
+          title: "Projetos sob confidencialidade contratual",
+          description: "Desenvolvimento de soluções em software, monitoramento energético e automação industrial, alinhadas às demandas e exigências do mercado local."
+        }
+      },
+      espanha: {
+        name: "Espanha",
+        summary: "",
+        confidential: {
+          title: "Projetos sob confidencialidade contratual",
+          description: "Desenvolvimento de soluções em software, monitoramento energético e automação industrial, alinhadas às demandas e exigências do mercado local."
+        }
+      },
+      honduras: {
+        name: "Honduras",
+        summary: "",
+        confidential: {
+          title: "Projetos sob confidencialidade contratual",
+          description: "Desenvolvimento de Projetos Elétricos e Análises Técnicas para Geração Distribuída."
+        }
+      },
+      colombia: {
+        name: "Colômbia",
+        summary: "",
+        confidential: {
+          title: "Projetos sob confidencialidade contratual",
+          description: "Desenvolvimento de Projetos Elétricos e Análises Técnicas para Geração Distribuída."
+        }
+      },
+      chile: {
+        name: "Chile",
+        summary: "",
+        confidential: {
+          title: "Projetos sob confidencialidade contratual",
+          description: "Desenvolvimento de soluções em software e monitoramento energético, alinhadas às demandas e exigências do mercado local."
+        }
+      }
+    };
+
+    const countryName = document.getElementById("countryName");
+    const countrySummary = document.getElementById("countrySummary");
+    const countryGallery = document.getElementById("countryGallery");
+    const countryButtons = document.querySelectorAll(".country-hotspot");
+
+    function setCountry(countryKey) {
+      const country = portfolioCountries[countryKey];
+      if (!country) return;
+
+      countryButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.country === countryKey);
+      });
+
+      countryName.textContent = country.name;
+      countrySummary.textContent = country.summary;
+      countrySummary.hidden = !country.summary;
+      if (country.confidential) {
+        countryGallery.innerHTML = `
+          <article class="confidential-card">
+            <h3>${country.confidential.title}</h3>
+            <p>${country.confidential.description}</p>
+          </article>
+        `;
+        return;
+      }
+
+      countryGallery.innerHTML = country.projects.map(([fileName, title]) => `
+        <figure tabindex="0">
+          <img src="Imagens/ASED/${fileName}" alt="${title}" loading="lazy" />
+          <figcaption>${title}</figcaption>
+        </figure>
+      `).join("");
+    }
+
+    countryButtons.forEach((button) => {
+      button.addEventListener("mouseenter", () => setCountry(button.dataset.country));
+      button.addEventListener("focus", () => setCountry(button.dataset.country));
+      button.addEventListener("click", () => setCountry(button.dataset.country));
+    });
+
+    setCountry("brasil");
+  </script>
+
+  <script>
+    (function () {
+      var panel = document.getElementById("via-mobile-panel");
+      var toggle = document.querySelector(".via-mobile-menu-toggle");
+      var closeButton = document.querySelector(".via-mobile-panel-close");
+      var overlay = document.getElementById("via-mobile-menu-overlay");
+      if (!panel || !toggle || !overlay) return;
+
+      function setOpenState(open) {
+        panel.classList.toggle("via-mobile-panel-open", open);
+        document.body.classList.toggle("via-mobile-panel-open", open);
+        panel.setAttribute("aria-hidden", (!open).toString());
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function closePanel() { setOpenState(false); }
+
+      toggle.addEventListener("click", function () {
+        setOpenState(!panel.classList.contains("via-mobile-panel-open"));
+      });
+
+      if (closeButton) closeButton.addEventListener("click", closePanel);
+      overlay.addEventListener("click", closePanel);
+
+      panel.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closePanel);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closePanel();
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var navbar = document.querySelector('.via-navbar');
+      if (!navbar) return;
+
+      var lastY = window.scrollY || window.pageYOffset || 0;
+      var delta = 6;
+
+      function showNavbar() { navbar.classList.remove('via-navbar-scroll-hidden'); }
+      function hideNavbar() { navbar.classList.add('via-navbar-scroll-hidden'); }
+
+      function handleScroll() {
+        if (window.innerWidth < 992) {
+          showNavbar();
+          return;
+        }
+
+        var currentY = window.scrollY || window.pageYOffset || 0;
+
+        if (currentY <= 10) {
+          showNavbar();
+          lastY = currentY;
+          return;
+        }
+
+        if (currentY > lastY + delta) hideNavbar();
+        else if (currentY < lastY - delta) showNavbar();
+
+        lastY = currentY;
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll);
+      handleScroll();
+    })();
+  </script>
+</body>
+</html>
