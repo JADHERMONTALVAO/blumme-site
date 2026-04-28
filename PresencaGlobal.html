@@ -238,6 +238,10 @@
       body.via-mobile-panel-open {
         overflow: hidden;
       }
+
+      .country-hotspot span {
+        display: none;
+      }
     }
 
     .portfolio-hero {
@@ -326,6 +330,15 @@
       width: min(1280px, 94vw);
       margin: 24px auto 54px;
       color: #eef4ff;
+    }
+
+    .portfolio-map-instruction {
+      margin: 0 0 16px;
+      color: rgba(238, 244, 255, .84);
+      font-size: clamp(15px, 1.8vw, 18px);
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 500;
     }
 
     .portfolio-map-panel {
@@ -688,6 +701,7 @@
   </section>
 
   <section class="portfolio-map-shell" aria-label="Presença global por país">
+    <p class="portfolio-map-instruction">Clique nos pontos do mapa para ver os projetos e atuações da Blumme em cada país.</p>
     <div class="portfolio-map-panel">
       <div class="world-map-stage" aria-label="Mapa mundi interativo">
         <img class="world-map-image" src="Imagens/Mapa.png" alt="Mapa mundi" loading="eager" />
