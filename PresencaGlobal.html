@@ -560,22 +560,34 @@
 
     .confidential-card {
       grid-column: 1 / -1;
-      min-height: 220px;
+      min-height: 270px;
       margin-top: 18px;
-      padding: clamp(22px, 3vw, 34px) clamp(34px, 4vw, 52px) clamp(22px, 3vw, 34px) clamp(22px, 3vw, 34px);
+      padding: clamp(28px, 4vw, 48px) clamp(34px, 4.5vw, 56px) clamp(28px, 4vw, 48px) clamp(20px, 2.6vw, 32px);
       border: 1px solid rgba(255,255,255,.14);
       background:
         linear-gradient(135deg, rgba(255,75,156,.18), rgba(73,176,255,.12)),
         rgba(5, 7, 11, .96);
+      background-size: 140% 140%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      transform: translateY(0);
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background-position .35s ease;
+    }
+
+    .confidential-card:hover,
+    .confidential-card:focus-within {
+      border-color: rgba(255,75,156,.42);
+      background-position: 100% 0;
+      box-shadow: 0 26px 60px rgba(0,0,0,.34), 0 0 0 1px rgba(255,75,156,.12);
+      transform: translateY(-4px);
     }
 
     .confidential-card h3 {
       margin: 0 0 14px;
       color: #fff;
-      font-size: clamp(22px, 2.4vw, 34px);
+      font-size: clamp(21px, 2.2vw, 31px);
       line-height: 1.05;
     }
 
@@ -608,6 +620,58 @@
       transform: translateY(0);
     }
 
+    .portfolio-impact-section {
+      position: relative;
+      width: 100%;
+      margin: 0 0 54px;
+      padding: clamp(64px, 8vw, 112px) 0;
+      overflow: hidden;
+      color: #eef4ff;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        radial-gradient(circle at 18% 20%, rgba(255,75,156,.14), transparent 34%),
+        radial-gradient(circle at 86% 80%, rgba(73,176,255,.14), transparent 34%),
+        #070a10;
+      background-size: 160px 160px, 160px 160px, auto, auto, auto;
+      border-top: 1px solid rgba(188, 205, 235, .14);
+      border-bottom: 1px solid rgba(188, 205, 235, .14);
+      isolation: isolate;
+    }
+
+    .portfolio-impact-section::before {
+      content: "";
+      position: absolute;
+      inset: -32% 8%;
+      z-index: -1;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .portfolio-impact-content {
+      width: min(1120px, 88vw);
+      margin: 0 auto;
+    }
+
+    .portfolio-impact-content h2 {
+      max-width: 920px;
+      margin: 0 0 22px;
+      color: #fff;
+      font-size: clamp(31px, 4.8vw, 62px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    .portfolio-impact-content p {
+      max-width: 820px;
+      margin: 0;
+      color: #c8d1df;
+      font-size: clamp(16px, 1.7vw, 20px);
+      line-height: 1.65;
+    }
+
     .portfolio-footer {
       width: min(1240px, 94vw);
       margin: 0 auto 36px;
@@ -634,6 +698,8 @@
       .portfolio-map-shell { width: 100%; margin-top: 16px; }
       .portfolio-map-panel { min-height: auto; border-left: 0; border-right: 0; }
       .world-map-stage { width: 100%; }
+      .portfolio-impact-section { margin-bottom: 38px; }
+      .portfolio-impact-content { width: min(100% - 32px, 1120px); }
       .country-hotspot.is-portugal { --x: 44.7%; --y: 39.1%; --size: 26px; --label-left: auto; --label-right: calc(100% + 8px); }
       .country-hotspot.is-brasil { --x: 30%; --y: 64%; --size: 40px; --label-left: calc(100% + 8px); }
       .country-hotspot.is-argentina { --x: 26.4%; --y: 72.8%; --size: 32px; --label-left: calc(100% + 8px); }
@@ -744,6 +810,13 @@
     </div>
   </section>
 
+  <section class="portfolio-impact-section" aria-label="Atuação técnica da Blumme">
+    <div class="portfolio-impact-content">
+      <h2>Nossa atuação vai além do que é visível.</h2>
+      <p>Nem todos os projetos podem ser representados por imagens ou modelagens 3D. Grande parte da atuação da Blumme está em análises técnicas, desenvolvimento de soluções, automação e inteligência aplicada — entregas estratégicas que sustentam resultados reais para nossos clientes.</p>
+    </div>
+  </section>
+
   <footer class="portfolio-footer">BlummeTech | 2026 Todos os direitos reservados</footer>
 
   <script>
@@ -837,16 +910,16 @@
         name: "Honduras",
         summary: "",
         confidential: {
-          title: "Projetos sob confidencialidade contratual",
-          description: "Desenvolvimento de Projetos Elétricos e Análises Técnicas para Geração Distribuída."
+          title: "Os projetos nesse país se encontram em confidencialidade contratual",
+          description: "Aqui a Blumme desenvolve análises técnicas e projetos para geração distribuída."
         }
       },
       colombia: {
         name: "Colômbia",
         summary: "",
         confidential: {
-          title: "Projetos sob confidencialidade contratual",
-          description: "Desenvolvimento de Projetos Elétricos e Análises Técnicas para Geração Distribuída."
+          title: "Os projetos nesse país se encontram em confidencialidade contratual",
+          description: "Aqui a Blumme desenvolve análises técnicas e projetos para geração distribuída."
         }
       },
       chile: {
